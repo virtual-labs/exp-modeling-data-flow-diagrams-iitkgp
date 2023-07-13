@@ -1,24 +1,43 @@
 ## Introduction
 
+<div align="center">
+<img src="experiment/images/iitkgp.png" width="10%">
+</div>
 
-<b>Discipline | <b>Fill your discipline name here
+<b>Discipline | <b> Computer Science  Engineering
 :--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+<b> Lab | <b> **Software Engineering**
+<b> Experiment|     <b> **Modeling Data Flow Diagrams and Experiment No. 8**
+
 
 ### About the Experiment 
+Information Systems (IS) help in managing and updating the vast business-related information. Before designing such an IS, it is helpful to identify the various stakeholders, and the information that they would be exchanging with the system. An IS, however, is a large software comprised of several modules, which, in turn, share the process the available data. These data are often stored in databases for further references. A Data Flow Diagram (DFD) is used to pictorially represent the functionalities of the ISs by focusing on the sources and destinations of the data flowing in the system.
 
-Fill a brief description of this experiment here
 
-<b>Name of Developer | <b> Fill the name of experiment owner here 
+### Subject Matter Experts 
+
+<b>Name of Developer | <b> **Prof. Debasis Samanta**
 :--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+<b> Institute | <b>  **Indian Institute of Technology Kharagpur**
+<b> Email id|     <b>  **dsamanta@iitkgp.ac.in**
+<b> Department |  **Department of Computer Science and Engineering**
+<b>Webpage| <b> [http://www.iitkgp.ac.in/cv/cs-dsamanta](http://www.iitkgp.ac.in/cv/cs-dsamanta)
+
+<b>Name of Developer | <b> **Prof. Sudip Misra**
+:--|:--|
+<b> Institute | <b>  **Indian Institute of Technology Kharagpur**
+<b> Email id|     <b>  **smisra@sit.iitkgp.ac.in**
+<b> Department |  **Department of Computer Science and Engineering**
+<b>Webpage| <b> [http://cse.iitkgp.ac.in/~smisra/](http://cse.iitkgp.ac.in/~smisra/)
+
 
 ### Contributors List
 
-SrNo | Name | Faculty or Student | Department| Institute | Email id
-:--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
+SrNo | Name | VLabs Developer or Integration Engineer | Department| Institute
+:--|:--|:--|:--|:--|
+1 | **Prakriti Dhang** | Developer & Integration |  Department of Mechanical Engineering | IIT Kharagpur |
+2 | **Barun Kumar Saha** | Developer |  Department of Mechanical Engineering | IIT Kharagpur | 
+3 | **Tuhin Chakrabarty** | Developer |  Department of Mechanical Engineering | IIT Kharagpur | 
+4 | **Bibudhendu Pati** | Developer |  Department of Mechanical Engineering | IIT Kharagpur | 
+
+

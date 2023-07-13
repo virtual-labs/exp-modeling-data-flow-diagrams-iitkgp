@@ -2,35 +2,37 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "How many processes are present in level-0 or context diagram?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "0",
+        "b": "1 ",
+        "c": "2 ",
+        "d":"3"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
+      
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "External entities can appear in a DFD",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "At any level ",
+        "b": "Only at level-0 ",
+        "c": "Only at level-1 ",
+        "d": "Either at level-0 or at level-1 "
+       
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Data flow in a DFD is not possible in between",
+      "answers": {
+        "a": "Two processes",
+        "b": " Data store and process",
+        "c": "External entity and data store",
+        "d": "Process and external entity "
+       
       },
       "correctAnswer": "c",
       "difficulty": "beginner"

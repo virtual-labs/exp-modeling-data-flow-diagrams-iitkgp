@@ -139,7 +139,7 @@ function addbtnt21() {
 
 /************************************ Function for Table 2 ********************************************/
 var arrprocess2 = [];
-
+var pl2;
 var inpt22, inpt23;
 function addbtnt22() {
 
@@ -182,11 +182,27 @@ function addbtnt22() {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
 
+  let isInserted = false;
+  
+  const listItemsulp2 = document.getElementById("process2");
+  const listItemslip2 = listItemsulp2.getElementsByTagName("li");
+  for (let i = 0; i < listItemslip2.length; i++) {
+    
+    if (listItemslip2[i].textContent == pl2) {
+      isInserted = true;
+      break;
+    }
+  }
 
+if (isInserted) {
+  alert("You have already enter a process by the same name.");
+  document.getElementById("inp22").value = "";
+  document.getElementById("inp23").value = "";
+}
   else {
     //document.getElementById("process_" + inpt21).appendChild(newuLi2);
     document.getElementById("process2").appendChild(newLi2);
-    var pl2 = inpt22 + "(" + inpt23 + ")";
+    pl2 = inpt22 + "(" + inpt23 + ")";
     arrprocess2.push(pl2);
     newLi2.setAttribute("data-value", pl2);
     let newOptionIDpa;

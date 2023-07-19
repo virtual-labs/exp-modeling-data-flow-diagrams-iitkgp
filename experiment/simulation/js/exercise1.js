@@ -193,6 +193,23 @@ function addbtnt2() {
   else if (inpt3 == "") {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
+  let isInserted = false;
+  
+  const listItemsulp = document.getElementById("process");
+  const listItemslip = listItemsulp.getElementsByTagName("li");
+  for (let i = 0; i < listItemslip.length; i++) {
+    
+    if (listItemslip[i].textContent == pl) {
+      isInserted = true;
+      break;
+    }
+  }
+
+if (isInserted) {
+  alert("You have already enter a process by the same name.");
+  document.getElementById("inp2").value = "";
+  document.getElementById("inp3").value = "";
+}
 
  else{
 

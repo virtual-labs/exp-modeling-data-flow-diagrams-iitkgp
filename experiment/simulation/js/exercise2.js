@@ -92,7 +92,7 @@ function addbtnt21() {
     }
   
   if (isInserted) {
-    alert("You have already entered a external entity by the same name.");
+    alert("You have already entered an external entity by the same name.");
     document.getElementById("inp21").value = "";
   }  else {
     

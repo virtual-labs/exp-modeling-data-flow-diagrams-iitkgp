@@ -456,10 +456,23 @@ function removerowli(btndel) {
 
 
 /********************************************* Function for Drawing UML**************************************************/
-
+var lenent, lenproc, lendb, lendatal;
 function drawbtex1() {
 
-  document.getElementById("dispuml1").style.display = "block";
+  lenent=arrentity.length;
+ lenproc=arrprocess.length;
+ lendb=arrdatastore.length;
+ lendatal=arrdatal.length;
+
+   if((lenent==1) && (lenproc==1)&& (lendb==1) &&(lendatal==4)){
+    document.getElementById("dispuml1").style.display = "block";
+   
+   }
+   else{
+  document.getElementById("dispuml1").style.display = "none";
+  alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, one process, one data store, and four data flow label");
+   }
+
   var namespace = joint.shapes;
 
   var graph = new joint.dia.Graph({}, { cellNamespace: namespace });
@@ -607,7 +620,7 @@ function drawbtex1() {
       strokeWidth: 0
     },
     label: {
-      text: arrdatal[2],
+      text: arrdatal[3],
 
       fill: 'black',
       fontSize: 16
@@ -629,7 +642,7 @@ function drawbtex1() {
       strokeWidth: 0
     },
     label: {
-      text: arrdatal[3],
+      text: arrdatal[2],
       fill: 'black',
       fontSize: 16
     }

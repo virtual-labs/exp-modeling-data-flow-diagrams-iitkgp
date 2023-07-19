@@ -19,21 +19,20 @@ function addbtnt21() {
   newIconbtn.setAttribute("src", "./images/remove.png");
   newIconbtn.setAttribute("onclick", "removerowli2(this)");
   newIconbtn.setAttribute("style", "cursor:pointer;");
-  //newdiv.appendChild(newIconbtn);
+ 
 
   let newtrID2 = inpt21;
   let newtdID2 = "entity" + inpt21;
-  //rbtn.appendChild(newIconbtn);   
+  
   let newtr2 = document.createElement("tr");
   newtr2.setAttribute("data-value", inpt21);
   newtr2.setAttribute("id", newtrID2);
   newtd2 = document.createElement("td");
   newtd2.setAttribute("class", "entityname");
   newtd2.setAttribute("id", newtdID2);
-  //newdiv = document.createElement("div");
-  //newdiv.setAttribute("class", "form-check");
+ 
   newtr2.appendChild(newtd2);
-  //newtd.appendChild(newdiv);
+  
 
 
   newuLi2 = document.createElement("ul");
@@ -52,41 +51,41 @@ function addbtnt21() {
   /**** process *****/
   let newtdpID2 = "process_" + inpt21;
   newtdp2 = document.createElement("td");
-  //newula = document.createElement("ul");
+
   newtdp2.setAttribute("id", newtdpID2);
 
-  //newtda.appendChild(newula);
+
   newtr2.appendChild(newtdp2);
   let liTextNodep2 = document.createTextNode("");
   newtdp2.appendChild(liTextNodep2);
-  //liTextNodeacta.appendChild(newIconbtn);
-  newtr2.appendChild(newtdp2);
+  
+  //newtr2.appendChild(newtdp2);
 
   /**** data store *****/
   let newtdsID2 = "ds_" + inpt21;
   newtdds2 = document.createElement("td");
-  //newula = document.createElement("ul");
+ 
   newtdds2.setAttribute("id", newtdsID2);
 
-  //newtda.appendChild(newula);
+ 
   newtr2.appendChild(newtdds2);
   let liTextNodeactds2 = document.createTextNode("");
   newtdds2.appendChild(liTextNodeactds2);
-  //liTextNodeactds.appendChild(newIconbtn);
+ 
   newtr2.appendChild(newtdds2);
   //document.getElementById('tbodyt25').appendChild(newtr2);
 
-  //let isInserted = false;
+  
   if (inpt21 == "") {
     alert("Please Enter External Entity before clicking Add Button");
-  } /* else {
-   
-    const myList2e = document.getElementById("entity2");
-
-    const listItems2e = myList2e.getElementsByTagName("li");
-
-    for (let i = 0; i < listItems2e.length; i++) {
-      if ((listItems2e[i].textContent == inpt21)) {
+  }  
+  /* let isInserted = false;
+  
+    const listItemsul2 = document.getElementById("entity2");
+    const listItemsli2 = listItemsul2.getElementsByTagName("li");
+    for (let i = 0; i < listItemsli2.length; i++) {
+      
+      if (listItemsli2[i].textContent == inpt21) {
         isInserted = true;
         break;
       }
@@ -96,8 +95,7 @@ function addbtnt21() {
     alert("You have already enter a entity by the same name.");
     document.getElementById("inp21").value = "";
   } */ else {
-   
-
+    
     //document.getElementById(newtdID2).appendChild(newuLi2);
     document.getElementById('tbodyt25').appendChild(newtr2);
     arrentityt2.push(inpt21);

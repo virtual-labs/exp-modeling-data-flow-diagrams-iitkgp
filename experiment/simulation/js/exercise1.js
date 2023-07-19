@@ -38,6 +38,7 @@ function addbtnt1() {
 
 
   newuLi = document.createElement("ul");
+  newuLi.setAttribute("id","entity");
   newuLi.setAttribute("style", "list-style-type:none");
   newLi = document.createElement("li");
   newLi.setAttribute("data-value", inpt1);
@@ -45,7 +46,7 @@ function addbtnt1() {
   newLi.appendChild(liTextNodeact);
   newLi.appendChild(newIconbtn);
   newuLi.appendChild(newLi);
-  newtd.appendChild(newuLi);
+ // newtd.appendChild(newuLi);
 
 
   /**** process *****/
@@ -77,8 +78,27 @@ function addbtnt1() {
 
   if (inpt1 == "") {
     alert("Please Enter External Entity before clicking Add Button");
-  } else {
-    document.getElementById('tbodyt5').appendChild(newtr);
+  } 
+
+  let isInserted = false;
+  
+    const listItemsul = document.getElementById("entity");
+    const listItemsli = listItemsul.getElementsByTagName("li");
+    for (let i = 0; i < listItemsli.length; i++) {
+      
+      if (listItemsli[i].textContent == inpt1) {
+        isInserted = true;
+        break;
+      }
+    }
+  
+  if (isInserted) {
+    alert("You have already entered a external entity by the same name.");
+    document.getElementById("inp1").value = "";
+  }
+  
+  else {
+    document.getElementById('entity').appendChild(newLi);
     arrentity.push(inpt1);
 
     document.getElementById("inp1").value = "";
@@ -123,6 +143,9 @@ function addbtnt1() {
     select.appendChild(newOption);
 
   }
+
+
+  
 }
 
 /************************************ Function for Table 2 ********************************************/
@@ -150,6 +173,7 @@ function addbtnt2() {
 
 
   newuLi = document.createElement("ul");
+  newuLi.setAttribute("id","process");
   newuLi.setAttribute("style", "list-style-type:none");
   newLi = document.createElement("li");
   let liTextNodep = document.createTextNode(inpt2);
@@ -169,10 +193,30 @@ function addbtnt2() {
   else if (inpt3 == "") {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
+  let isInserted = false;
+  
+  const listItemsulp = document.getElementById("process");
+  const listItemslip = listItemsulp.getElementsByTagName("li");
+  for (let i = 0; i < listItemslip.length; i++) {
+    
+    if (listItemslip[i].textContent == pl) {
+      isInserted = true;
+      break;
+    }
+  }
+
+if (isInserted) {
+  alert("You have already enter a process by the same name.");
+  document.getElementById("inp2").value = "";
+  document.getElementById("inp3").value = "";
+}
+
+ else{
 
 
-  else {
-    document.getElementById("process_" + inpt1).appendChild(newuLi);
+  
+    document.getElementById("process").appendChild(newLi);
+    //document.getElementById("process_"+inpt1).appendChild(newuLi);
     pl = inpt2 + "(" + inpt3 + ")";
     arrprocess.push(pl);
     newLi.setAttribute("data-value", pl);
@@ -256,10 +300,26 @@ function addbtnt3() {
   if (inpt4 == "") {
     alert("Please Enter Data Store Before Clicking Add Button");
   }
+  let isInserted = false;
+  
+  const listItemsulds = document.getElementById("ds");
+  const listItemslids = listItemsulds.getElementsByTagName("li");
+  for (let i = 0; i < listItemslids.length; i++) {
+    
+    if (listItemslids[i].textContent == inpt4) {
+      isInserted = true;
+      break;
+    }
+  }
 
+if (isInserted) {
+  alert("You have already entered a data store by the same name.");
+  document.getElementById("inp4").value = "";
+}
   else {
     arrdatastore.push(inpt4);
-    document.getElementById("ds_" + inpt1).appendChild(newuLin);
+    document.getElementById("ds").appendChild(newLin);
+    //document.getElementById("ds_" + inpt1).appendChild(newuLin);
     newLin.setAttribute("data-value", inpt4);
 
     let newOptionIDds;
@@ -456,10 +516,23 @@ function removerowli(btndel) {
 
 
 /********************************************* Function for Drawing UML**************************************************/
-
+var lenent, lenproc, lendb, lendatal;
 function drawbtex1() {
 
-  document.getElementById("dispuml1").style.display = "block";
+  lenent=arrentity.length;
+ lenproc=arrprocess.length;
+ lendb=arrdatastore.length;
+ lendatal=arrdatal.length;
+
+   if((lenent==1) && (lenproc==1)&& (lendb==1) &&(lendatal==4)){
+    document.getElementById("dispuml1").style.display = "block";
+   
+   }
+   else{
+  document.getElementById("dispuml1").style.display = "none";
+  alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, one process, one data store, and four data flow label");
+   }
+
   var namespace = joint.shapes;
 
   var graph = new joint.dia.Graph({}, { cellNamespace: namespace });
@@ -607,7 +680,7 @@ function drawbtex1() {
       strokeWidth: 0
     },
     label: {
-      text: arrdatal[2],
+      text: arrdatal[3],
 
       fill: 'black',
       fontSize: 16
@@ -629,7 +702,7 @@ function drawbtex1() {
       strokeWidth: 0
     },
     label: {
-      text: arrdatal[3],
+      text: arrdatal[2],
       fill: 'black',
       fontSize: 16
     }

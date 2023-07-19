@@ -79,7 +79,7 @@ function addbtnt21() {
   if (inpt21 == "") {
     alert("Please Enter External Entity before clicking Add Button");
   }  
-  /* let isInserted = false;
+   let isInserted = false;
   
     const listItemsul2 = document.getElementById("entity2");
     const listItemsli2 = listItemsul2.getElementsByTagName("li");
@@ -92,12 +92,12 @@ function addbtnt21() {
     }
   
   if (isInserted) {
-    alert("You have already enter a entity by the same name.");
+    alert("You have already entered a external entity by the same name.");
     document.getElementById("inp21").value = "";
-  } */ else {
+  }  else {
     
-    //document.getElementById(newtdID2).appendChild(newuLi2);
-    document.getElementById('tbodyt25').appendChild(newtr2);
+    
+    document.getElementById('entity2').appendChild(newLi2);
     arrentityt2.push(inpt21);
     document.getElementById("inp21").value = "";
 
@@ -139,7 +139,7 @@ function addbtnt21() {
 
 /************************************ Function for Table 2 ********************************************/
 var arrprocess2 = [];
-
+var pl2;
 var inpt22, inpt23;
 function addbtnt22() {
 
@@ -182,10 +182,27 @@ function addbtnt22() {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
 
+  let isInserted = false;
+  
+  const listItemsulp2 = document.getElementById("process2");
+  const listItemslip2 = listItemsulp2.getElementsByTagName("li");
+  for (let i = 0; i < listItemslip2.length; i++) {
+    
+    if (listItemslip2[i].textContent == pl2) {
+      isInserted = true;
+      break;
+    }
+  }
 
+if (isInserted) {
+  alert("You have already enter a process by the same name.");
+  document.getElementById("inp22").value = "";
+  document.getElementById("inp23").value = "";
+}
   else {
-    document.getElementById("process_" + inpt21).appendChild(newuLi2);
-    var pl2 = inpt22 + "(" + inpt23 + ")";
+    //document.getElementById("process_" + inpt21).appendChild(newuLi2);
+    document.getElementById("process2").appendChild(newLi2);
+    pl2 = inpt22 + "(" + inpt23 + ")";
     arrprocess2.push(pl2);
     newLi2.setAttribute("data-value", pl2);
     let newOptionIDpa;
@@ -270,8 +287,25 @@ function addbtnt23() {
   }
 
   else {
+    let isInserted = false;
+  
+    const listItemsulds2 = document.getElementById("ds2");
+    const listItemslids2 = listItemsulds2.getElementsByTagName("li");
+    for (let i = 0; i < listItemslids2.length; i++) {
+      
+      if (listItemslids2[i].textContent == inpt24) {
+        isInserted = true;
+        break;
+      }
+    }
+  
+  if (isInserted) {
+    alert("You have already entered a data store by the same name.");
+    document.getElementById("inp24").value = "";
+  }
     arrdatastore2.push(inpt24);
-    document.getElementById("ds_" + inpt21).appendChild(newuLin2);
+    //document.getElementById("ds_" + inpt21).appendChild(newuLin2);
+    document.getElementById("ds2").appendChild(newLin2);
     newLin2.setAttribute("data-value", inpt24);
 
     let newOptionIDdsa;
@@ -467,10 +501,22 @@ function removerowli2(btndel) {
 
 
 /********************************************* Function for Drawing UML**************************************************/
-
+var lenent2, lenproc2, lendb2, lendatal2;
 function drawbtex2() {
+ lenent2=arrentityt2.length;
+ lenproc2=arrprocess2.length;
+ lendb2=arrdatastore2.length;
+ lendatal2=arrdatal2.length;
+   if((lenent2==1) && (lenproc2==3)&& (lendb2==1) &&(lendatal2==7)){
+    document.getElementById("dispuml2").style.display = "block";
+   
+   }
+   else{
 
-  document.getElementById("dispuml2").style.display = "block";
+  alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, three process, one data store, and seven data flow label");
+  document.getElementById("dispuml2").style.display = "none";
+
+   }
   var namespace = joint.shapes;
 
   var graph = new joint.dia.Graph({}, { cellNamespace: namespace });

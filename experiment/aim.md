@@ -1,7 +1,3 @@
-## Objectives
+## Aim of the Experiment
 
-**After completing this experiment you will be able to:**
-
-- Identify external entities and functionalities of any system
-- Identify the flow of data across the system
-- Represent the flow with Data Flow Diagrams
+In this experiment we will learn how external entities and functionalities of any system can be captured; and flow of data across the system.

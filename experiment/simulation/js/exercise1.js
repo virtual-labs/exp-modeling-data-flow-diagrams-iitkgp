@@ -9,143 +9,86 @@ Author: Prakriti Dhang*/
 
 var arrentity = [];
 var inpt1;
-let newtd, newtdp, newtdds;
+
 function addbtnt1() {
 
   inpt1 = document.getElementById("inp1").value;
-  
-
-
-  var newIconbtn = document.createElement("img");
-  newIconbtn.setAttribute("src", "./images/remove.png");
-  newIconbtn.setAttribute("onclick", "removerowli(this)");
-  newIconbtn.setAttribute("style", "cursor:pointer;");
-  //newdiv.appendChild(newIconbtn);
-
-  let newtrID = inpt1;
-  let newtdID = inpt1;
-  //rbtn.appendChild(newIconbtn);   
-  let newtr = document.createElement("tr");
-  newtr.setAttribute("id", newtrID);
-  newtd = document.createElement("td");
-  newtd.setAttribute("class", "entityname");
-  newtd.setAttribute("data-value", inpt1)
-  newtd.setAttribute("id", newtdID);
-  //newdiv = document.createElement("div");
-  //newdiv.setAttribute("class", "form-check");
-  newtr.appendChild(newtd);
-  //newtd.appendChild(newdiv);
-
-
-  newuLi = document.createElement("ul");
-  newuLi.setAttribute("id","entity");
-  newuLi.setAttribute("style", "list-style-type:none");
-  newLi = document.createElement("li");
-  newLi.setAttribute("data-value", inpt1);
-  let liTextNodeact = document.createTextNode(inpt1);
-  newLi.appendChild(liTextNodeact);
-  newLi.appendChild(newIconbtn);
-  newuLi.appendChild(newLi);
- // newtd.appendChild(newuLi);
-
-
-  /**** process *****/
-  let newtdpID = "process_" + inpt1;
-  newtdp = document.createElement("td");
-  //newula = document.createElement("ul");
-  newtdp.setAttribute("id", newtdpID);
-
-  //newtda.appendChild(newula);
-  newtr.appendChild(newtdp);
-  let liTextNodeacta = document.createTextNode("");
-  newtdp.appendChild(liTextNodeacta);
-  //liTextNodeacta.appendChild(newIconbtn);
-  newtr.appendChild(newtdp);
-
-  /**** data store *****/
-  let newtdsID = "ds_" + inpt1;
-  newtdds = document.createElement("td");
-  //newula = document.createElement("ul");
-  newtdds.setAttribute("id", newtdsID);
-
-  //newtda.appendChild(newula);
-  newtr.appendChild(newtdds);
-  let liTextNodeactds = document.createTextNode("");
-  newtdds.appendChild(liTextNodeactds);
-  //liTextNodeactds.appendChild(newIconbtn);
-  newtr.appendChild(newtdds);
 
 
   if (inpt1 == "") {
     alert("Please Enter External Entity before clicking Add Button");
-  } 
+  }
+  else {
+    let isInserted = false;
 
-  let isInserted = false;
-  
     const listItemsul = document.getElementById("entity");
     const listItemsli = listItemsul.getElementsByTagName("li");
     for (let i = 0; i < listItemsli.length; i++) {
-      
+
       if (listItemsli[i].textContent == inpt1) {
         isInserted = true;
         break;
       }
     }
-  
-  if (isInserted) {
-    alert("You have already entered an external entity by the same name.");
-    document.getElementById("inp1").value = "";
+
+    if (isInserted) {
+      alert("You have already entered an external entity by the same name.");
+      document.getElementById("inp1").value = "";
+    }
+
+    else {
+      var newIconbtn = document.createElement("img");
+      newIconbtn.setAttribute("src", "./images/remove.png");
+      newIconbtn.setAttribute("onclick", "removerowli(this)");
+      newIconbtn.setAttribute("style", "cursor:pointer;");
+      newLi = document.createElement("li");
+      newLi.setAttribute("data-value", inpt1);
+      let liTextNodeact = document.createTextNode(inpt1);
+      newLi.appendChild(liTextNodeact);
+      newLi.appendChild(newIconbtn);
+      document.getElementById('entity').appendChild(newLi);
+      arrentity.push(inpt1);
+
+      document.getElementById("inp1").value = "";
+
+      /*********************** Adding input value in table 4 dropdown (from ) *************************/
+
+      let newOptionIDt4;
+      newOptionIDt4 = 'newOption_' + inpt1;
+
+      let newOptiont4 = document.createElement('option');
+      let optionTextt4 = document.createTextNode(inpt1);
+      // set option text
+      newOptiont4.appendChild(optionTextt4);
+      // and option value
+
+      newOptiont4.setAttribute("id", newOptionIDt4);
+      newOptiont4.setAttribute('value', inpt1);
+      let selectt4 = document.getElementById('selectfrom');
+      selectt4.appendChild(newOptiont4);
+
+
+
+      /*********************** Adding input value table 4 dropdown ( to) *************************/
+
+      let newOptionID;
+      newOptionID = 'newOption_' + inpt1;
+
+      let newOption = document.createElement('option');
+      let optionText = document.createTextNode(inpt1);
+      // set option text
+      newOption.appendChild(optionText);
+      // and option value
+
+      newOption.setAttribute("id", newOptionID);
+      newOption.setAttribute('value', inpt1);
+      let select = document.getElementById('selectto');
+      select.appendChild(newOption);
+
+    }
+
   }
-  
-  else {
-    document.getElementById('entity').appendChild(newLi);
-    arrentity.push(inpt1);
 
-    document.getElementById("inp1").value = "";
-
-    /*********************** Adding input value in table 4 dropdown (from ) *************************/
-
-    let newOptionIDt4;
-    newOptionIDt4 = 'newOption_' + inpt1;
-
-    let newOptiont4 = document.createElement('option');
-    let optionTextt4 = document.createTextNode(inpt1);
-    // set option text
-    newOptiont4.appendChild(optionTextt4);
-    // and option value
-
-    newOptiont4.setAttribute("id", newOptionIDt4);
-    newOptiont4.setAttribute('value', inpt1);
-    let selectt4 = document.getElementById('selectfrom');
-    selectt4.appendChild(newOptiont4);
-
-
-
-
-
-
-
-
-    /*********************** Adding input value table 4 dropdown ( to) *************************/
-
-    let newOptionID;
-    newOptionID = 'newOption_' + inpt1;
-
-    let newOption = document.createElement('option');
-    let optionText = document.createTextNode(inpt1);
-    // set option text
-    newOption.appendChild(optionText);
-    // and option value
-
-    newOption.setAttribute("id", newOptionID);
-    newOption.setAttribute('value', inpt1);
-    let select = document.getElementById('selectto');
-    select.appendChild(newOption);
-
-  }
-
-
-  
 }
 
 /************************************ Function for Table 2 ********************************************/
@@ -157,35 +100,7 @@ function addbtnt2() {
   inpt2 = document.getElementById("inp2").value;
   inpt3 = document.getElementById("inp3").value;
 
-  var newIconbtn = document.createElement("img");
-  newIconbtn.setAttribute("src", "./images/remove.png");
-  newIconbtn.setAttribute("onclick", "removerowli(this)");
-  newIconbtn.setAttribute("style", "cursor:pointer;");
-
-  var b_sign = "(";
-  var para = document.createElement("b");
-  let add_b = document.createTextNode(b_sign);
-  para.appendChild(add_b);
-  var b_sign1 = ")";
-  var para1 = document.createElement("b");
-  let add_b1 = document.createTextNode(b_sign1);
-  para1.appendChild(add_b1);
-
-
-  newuLi = document.createElement("ul");
-  newuLi.setAttribute("id","process");
-  newuLi.setAttribute("style", "list-style-type:none");
-  newLi = document.createElement("li");
-  let liTextNodep = document.createTextNode(inpt2);
-  let liTextNodepl = document.createTextNode(inpt3);
-  newLi.appendChild(liTextNodep);
-  newLi.appendChild(para);
-  newLi.appendChild(liTextNodepl);
-  newLi.appendChild(para1);
-
-
-  newLi.appendChild(newIconbtn);
-  newuLi.appendChild(newLi);
+  
 
   if (inpt2 == "") {
     alert("Please Enter Process Before Clicking Add Button");
@@ -193,78 +108,101 @@ function addbtnt2() {
   else if (inpt3 == "") {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
-  let isInserted = false;
-  
-  const listItemsulp = document.getElementById("process");
-  const listItemslip = listItemsulp.getElementsByTagName("li");
-  for (let i = 0; i < listItemslip.length; i++) {
-    
-    if (listItemslip[i].textContent == pl) {
-      isInserted = true;
-      break;
+  else {
+    let isInserted = false;
+
+    const listItemsulp = document.getElementById("process");
+    const listItemslip = listItemsulp.getElementsByTagName("li");
+    for (let i = 0; i < listItemslip.length; i++) {
+
+      if (listItemslip[i].textContent == pl) {
+        isInserted = true;
+        break;
+      }
     }
+
+    if (isInserted) {
+      alert("You have already enter a process by the same name.");
+      document.getElementById("inp2").value = "";
+      document.getElementById("inp3").value = "";
+    }
+
+    else {
+
+      var newIconbtn = document.createElement("img");
+      newIconbtn.setAttribute("src", "./images/remove.png");
+      newIconbtn.setAttribute("onclick", "removerowli(this)");
+      newIconbtn.setAttribute("style", "cursor:pointer;");
+
+      var b_sign = "(";
+      var para = document.createElement("b");
+      let add_b = document.createTextNode(b_sign);
+      para.appendChild(add_b);
+      var b_sign1 = ")";
+      var para1 = document.createElement("b");
+      let add_b1 = document.createTextNode(b_sign1);
+      para1.appendChild(add_b1);
+
+
+      //newuLi = document.createElement("ul");
+      // newuLi.setAttribute("id","process");
+      // newuLi.setAttribute("style", "list-style-type:none");
+      newLi = document.createElement("li");
+      let liTextNodep = document.createTextNode(inpt2);
+      let liTextNodepl = document.createTextNode(inpt3);
+      newLi.appendChild(liTextNodep);
+      newLi.appendChild(para);
+      newLi.appendChild(liTextNodepl);
+      newLi.appendChild(para1);
+
+
+      newLi.appendChild(newIconbtn);
+      //newuLi.appendChild(newLi);
+
+      document.getElementById("process").appendChild(newLi);
+      //document.getElementById("process_"+inpt1).appendChild(newuLi);
+      pl = inpt2 + "(" + inpt3 + ")";
+      arrprocess.push(pl);
+      newLi.setAttribute("data-value", pl);
+      let newOptionIDp;
+      newOptionIDp = 'newOption_' + inpt2;
+
+      let newOptionp = document.createElement('option');
+      let optionTextp = document.createTextNode(pl);
+      // set option text
+      newOptionp.appendChild(optionTextp);
+      // and option value
+
+      newOptionp.setAttribute("id", newOptionIDp);
+      newOptionp.setAttribute('value', pl);
+      let selectp = document.getElementById('selectfrom');
+      selectp.appendChild(newOptionp);
+
+
+      let newOptionIDpt;
+      newOptionIDpt = 'newOption_' + inpt2;
+
+      let newOptionpt = document.createElement('option');
+      let optionTextpt = document.createTextNode(pl);
+      // set option text
+      newOptionpt.appendChild(optionTextpt);
+      // and option value
+
+      newOptionpt.setAttribute("id", newOptionIDpt);
+      newOptionpt.setAttribute('value', pl);
+      let selectpt = document.getElementById('selectto');
+      selectpt.appendChild(newOptionpt);
+
+    }
+
+    document.getElementById("inp2").value = "";
+    document.getElementById("inp3").value = "";
+
   }
 
-if (isInserted) {
-  alert("You have already enter a process by the same name.");
-  document.getElementById("inp2").value = "";
-  document.getElementById("inp3").value = "";
 }
 
- else{
 
-
-  
-    document.getElementById("process").appendChild(newLi);
-    //document.getElementById("process_"+inpt1).appendChild(newuLi);
-    pl = inpt2 + "(" + inpt3 + ")";
-    arrprocess.push(pl);
-    newLi.setAttribute("data-value", pl);
-    let newOptionIDp;
-    newOptionIDp = 'newOption_' + inpt2;
-
-    let newOptionp = document.createElement('option');
-    let optionTextp = document.createTextNode(pl);
-    // set option text
-    newOptionp.appendChild(optionTextp);
-    // and option value
-
-    newOptionp.setAttribute("id", newOptionIDp);
-    newOptionp.setAttribute('value', pl);
-    let selectp = document.getElementById('selectfrom');
-    selectp.appendChild(newOptionp);
-
-
-    let newOptionIDpt;
-    newOptionIDpt = 'newOption_' + inpt2;
-
-    let newOptionpt = document.createElement('option');
-    let optionTextpt = document.createTextNode(pl);
-    // set option text
-    newOptionpt.appendChild(optionTextpt);
-    // and option value
-
-    newOptionpt.setAttribute("id", newOptionIDpt);
-    newOptionpt.setAttribute('value', pl);
-    let selectpt = document.getElementById('selectto');
-    selectpt.appendChild(newOptionpt);
-
-  }
-
-  document.getElementById("inp2").value = "";
-  document.getElementById("inp3").value = "";
-
-
-
-}
-
-
-/*function checknumber(){
-  if (isNaN(inpt3)) 
-  {
-    alert("Must input numbers");
-  }
-}*/
 
 
 
@@ -275,87 +213,85 @@ function addbtnt3() {
 
   inpt4 = document.getElementById("inp4").value;
 
-
-  var newIconbtn = document.createElement("img");
-  newIconbtn.setAttribute("src", "./images/remove.png");
-  newIconbtn.setAttribute("onclick", "removerowli(this)");
-  newIconbtn.setAttribute("style", "cursor:pointer;");
-
-
-  newuLin = document.createElement("ul");
-  newLin = document.createElement("li");
-  newuLin.setAttribute("style", "list-style-type:none");
-
-  let liTextNodent = document.createTextNode(inpt4);
-  newLin.appendChild(liTextNodent);
-  newLin.appendChild(newIconbtn);
-
-
-
-  newuLin.appendChild(newLin);
-
-
-
-
   if (inpt4 == "") {
     alert("Please Enter Data Store Before Clicking Add Button");
   }
-  let isInserted = false;
-  
-  const listItemsulds = document.getElementById("ds");
-  const listItemslids = listItemsulds.getElementsByTagName("li");
-  for (let i = 0; i < listItemslids.length; i++) {
-    
-    if (listItemslids[i].textContent == inpt4) {
-      isInserted = true;
-      break;
-    }
-  }
-
-if (isInserted) {
-  alert("You have already entered a data store by the same name.");
-  document.getElementById("inp4").value = "";
-}
   else {
-    arrdatastore.push(inpt4);
-    document.getElementById("ds").appendChild(newLin);
-    //document.getElementById("ds_" + inpt1).appendChild(newuLin);
-    newLin.setAttribute("data-value", inpt4);
+    let isInserted = false;
 
-    let newOptionIDds;
-    newOptionIDds = 'newOption_' + inpt4;
+    const listItemsulds = document.getElementById("ds");
+    const listItemslids = listItemsulds.getElementsByTagName("li");
+    for (let i = 0; i < listItemslids.length; i++) {
 
-    let newOptionds = document.createElement('option');
-    let optionTextds = document.createTextNode(inpt4);
-    // set option text
-    newOptionds.appendChild(optionTextds);
-    // and option value
+      if (listItemslids[i].textContent == inpt4) {
+        isInserted = true;
+        break;
+      }
+    }
 
-    newOptionds.setAttribute("id", newOptionIDds);
-    newOptionds.setAttribute('value', inpt4);
-    let selectds = document.getElementById('selectfrom');
-    selectds.appendChild(newOptionds);
+    if (isInserted) {
+      alert("You have already entered a data store by the same name.");
+      document.getElementById("inp4").value = "";
+    }
+    else {
+      var newIconbtn = document.createElement("img");
+      newIconbtn.setAttribute("src", "./images/remove.png");
+      newIconbtn.setAttribute("onclick", "removerowli(this)");
+      newIconbtn.setAttribute("style", "cursor:pointer;");
 
 
-    let newOptionIDdst;
-    newOptionIDdst = 'newOption_' + inpt4;
+      //newuLin = document.createElement("ul");
+      newLin = document.createElement("li");
+      //newuLin.setAttribute("style", "list-style-type:none");
 
-    let newOptiondst = document.createElement('option');
-    let optionTextdst = document.createTextNode(inpt4);
-    // set option text
-    newOptiondst.appendChild(optionTextdst);
-    // and option value
+      let liTextNodent = document.createTextNode(inpt4);
+      newLin.appendChild(liTextNodent);
+      newLin.appendChild(newIconbtn);
 
-    newOptiondst.setAttribute("id", newOptionIDdst);
-    newOptiondst.setAttribute('value', inpt4);
-    let selectdst = document.getElementById('selectto');
-    selectdst.appendChild(newOptiondst);
 
+
+      //newuLin.appendChild(newLin);
+
+      arrdatastore.push(inpt4);
+      document.getElementById("ds").appendChild(newLin);
+      //document.getElementById("ds_" + inpt1).appendChild(newuLin);
+      newLin.setAttribute("data-value", inpt4);
+
+      let newOptionIDds;
+      newOptionIDds = 'newOption_' + inpt4;
+
+      let newOptionds = document.createElement('option');
+      let optionTextds = document.createTextNode(inpt4);
+      // set option text
+      newOptionds.appendChild(optionTextds);
+      // and option value
+
+      newOptionds.setAttribute("id", newOptionIDds);
+      newOptionds.setAttribute('value', inpt4);
+      let selectds = document.getElementById('selectfrom');
+      selectds.appendChild(newOptionds);
+
+
+      let newOptionIDdst;
+      newOptionIDdst = 'newOption_' + inpt4;
+
+      let newOptiondst = document.createElement('option');
+      let optionTextdst = document.createTextNode(inpt4);
+      // set option text
+      newOptiondst.appendChild(optionTextdst);
+      // and option value
+
+      newOptiondst.setAttribute("id", newOptionIDdst);
+      newOptiondst.setAttribute('value', inpt4);
+      let selectdst = document.getElementById('selectto');
+      selectdst.appendChild(newOptiondst);
+
+
+    }
+    document.getElementById("inp4").value = "";
+    document.getElementById("ftbl3").reset();
 
   }
-  document.getElementById("inp4").value = "";
-  document.getElementById("ftbl3").reset();
-
 }
 /********************************************************** Function for Table 4 *****************************************************************/
 
@@ -423,13 +359,11 @@ function addbtnt4() {
     var td2 = document.createElement("td");
     var td3 = document.createElement("td");
     var td4 = document.createElement("td");
-    // var td5=document.createElement("td");
-    // var td6=document.createElement("td");
+   
     var tdval1 = document.createTextNode(selfromv);
     var tdval2 = document.createTextNode(inpt5);
     var tdval3 = document.createTextNode(seltov);
-    //var tdval4=document.createTextNode(inpt6);
-    // var tdval5=document.createTextNode(s2eval);
+   
 
 
 
@@ -447,16 +381,14 @@ function addbtnt4() {
     td1.appendChild(tdval1);
     td2.appendChild(tdval2);
     td3.appendChild(tdval3);
-    //td4.appendChild(tdval4);
-    // td5.appendChild(tdval5);
+  
     td4.appendChild(newIconbtn);
 
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
     tr.appendChild(td4);
-    //tr.appendChild(td5);
-    // tr.appendChild(td6);
+   
     document.getElementById('tbodyt6').appendChild(tr);
     document.getElementById("inp5").value = "";
   }
@@ -486,26 +418,26 @@ function removerowli(btndel) {
     $("#selectfrom").find('option[value="' + listItemValue + '"]').remove();
     $("#selectto").find('option[value="' + listItemValue + '"]').remove();
 
-  /* Remove item from array */
-  var index = arrentity.indexOf(listItemValue);
-  if (index !== -1) {
-    arrentity.splice(index, 1);
-  }
-  console.log(arrentity);
+    /* Remove item from array */
+    var index = arrentity.indexOf(listItemValue);
+    if (index !== -1) {
+      arrentity.splice(index, 1);
+    }
+    console.log(arrentity);
 
 
-  var index = arrprocess.indexOf(listItemValue);
-  if (index !== -1) {
-    arrprocess.splice(index, 1);
-  }
-  console.log(arrprocess);
+    var index = arrprocess.indexOf(listItemValue);
+    if (index !== -1) {
+      arrprocess.splice(index, 1);
+    }
+    console.log(arrprocess);
 
 
-  var index = arrdatastore.indexOf(listItemValue);
-  if (index !== -1) {
-    arrdatastore.splice(index, 1);
-  }
-  console.log(arrdatastore);
+    var index = arrdatastore.indexOf(listItemValue);
+    if (index !== -1) {
+      arrdatastore.splice(index, 1);
+    }
+    console.log(arrdatastore);
 
 
   }
@@ -519,19 +451,19 @@ function removerowli(btndel) {
 var lenent, lenproc, lendb, lendatal;
 function drawbtex1() {
 
-  lenent=arrentity.length;
- lenproc=arrprocess.length;
- lendb=arrdatastore.length;
- lendatal=arrdatal.length;
+  lenent = arrentity.length;
+  lenproc = arrprocess.length;
+  lendb = arrdatastore.length;
+  lendatal = arrdatal.length;
 
-   if((lenent==1) && (lenproc==1)&& (lendb==1) &&(lendatal==4)){
+  if ((lenent == 1) && (lenproc == 1) && (lendb == 1) && (lendatal == 4)) {
     document.getElementById("dispuml1").style.display = "block";
-   
-   }
-   else{
-  document.getElementById("dispuml1").style.display = "none";
-  alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, one process, one data store, and four data flow label");
-   }
+
+  }
+  else {
+    document.getElementById("dispuml1").style.display = "none";
+    alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, one process, one data store, and four data flow label");
+  }
 
   var namespace = joint.shapes;
 

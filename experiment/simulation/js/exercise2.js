@@ -11,130 +11,82 @@ Author: Prakriti Dhang*/
 var arrentityt2 = [];
 var inpt21;
 function addbtnt21() {
-  let newtd2, newtdp2, newtdds2;
+ 
   inpt21 = document.getElementById("inp21").value;
 
 
-  var newIconbtn = document.createElement("img");
-  newIconbtn.setAttribute("src", "./images/remove.png");
-  newIconbtn.setAttribute("onclick", "removerowli2(this)");
-  newIconbtn.setAttribute("style", "cursor:pointer;");
- 
 
-  let newtrID2 = inpt21;
-  let newtdID2 = "entity" + inpt21;
-  
-  let newtr2 = document.createElement("tr");
-  newtr2.setAttribute("data-value", inpt21);
-  newtr2.setAttribute("id", newtrID2);
-  newtd2 = document.createElement("td");
-  newtd2.setAttribute("class", "entityname");
-  newtd2.setAttribute("id", newtdID2);
- 
-  newtr2.appendChild(newtd2);
-  
-
-
-  newuLi2 = document.createElement("ul");
-  newuLi2.setAttribute("id", "entity2")
-  newuLi2.setAttribute("style", "list-style-type:none");
-  newLi2 = document.createElement("li");
-
-  newLi2.setAttribute("data-value", inpt21);
-  let liTextNodeact2 = document.createTextNode(inpt21);
-  newLi2.appendChild(liTextNodeact2);
-  newLi2.appendChild(newIconbtn);
-  newuLi2.appendChild(newLi2);
-  newtd2.appendChild(newuLi2);
-
-
-  /**** process *****/
-  let newtdpID2 = "process_" + inpt21;
-  newtdp2 = document.createElement("td");
-
-  newtdp2.setAttribute("id", newtdpID2);
-
-
-  newtr2.appendChild(newtdp2);
-  let liTextNodep2 = document.createTextNode("");
-  newtdp2.appendChild(liTextNodep2);
-  
-  //newtr2.appendChild(newtdp2);
-
-  /**** data store *****/
-  let newtdsID2 = "ds_" + inpt21;
-  newtdds2 = document.createElement("td");
- 
-  newtdds2.setAttribute("id", newtdsID2);
-
- 
-  newtr2.appendChild(newtdds2);
-  let liTextNodeactds2 = document.createTextNode("");
-  newtdds2.appendChild(liTextNodeactds2);
- 
-  newtr2.appendChild(newtdds2);
-  //document.getElementById('tbodyt25').appendChild(newtr2);
-
-  
   if (inpt21 == "") {
     alert("Please Enter External Entity before clicking Add Button");
-  }  
-   let isInserted = false;
-  
+  } else {
+    let isInserted = false;
+
     const listItemsul2 = document.getElementById("entity2");
     const listItemsli2 = listItemsul2.getElementsByTagName("li");
     for (let i = 0; i < listItemsli2.length; i++) {
-      
+
       if (listItemsli2[i].textContent == inpt21) {
         isInserted = true;
         break;
       }
     }
-  
-  if (isInserted) {
-    alert("You have already entered an external entity by the same name.");
-    document.getElementById("inp21").value = "";
-  }  else {
-    
-    
-    document.getElementById('entity2').appendChild(newLi2);
-    arrentityt2.push(inpt21);
-    document.getElementById("inp21").value = "";
 
-    /*********************** Adding input value in table 4 dropdown (from ) *************************/
+    if (isInserted) {
+      alert("You have already entered an external entity by the same name.");
+      document.getElementById("inp21").value = "";
+    } else {
+      var newIconbtn = document.createElement("img");
+      newIconbtn.setAttribute("src", "./images/remove.png");
+      newIconbtn.setAttribute("onclick", "removerowli2(this)");
+      newIconbtn.setAttribute("style", "cursor:pointer;");
 
-    let newOptionIDt4a;
-    newOptionIDt4a = 'newOption_' + inpt21;
+      newLi2 = document.createElement("li");
 
-    let newOptiont4a = document.createElement('option');
-    let optionTextt4a = document.createTextNode(inpt21);
-    // set option text
-    newOptiont4a.appendChild(optionTextt4a);
-    // and option value
+      newLi2.setAttribute("data-value", inpt21);
+      let liTextNodeact2 = document.createTextNode(inpt21);
+      newLi2.appendChild(liTextNodeact2);
+      newLi2.appendChild(newIconbtn);
 
-    newOptiont4a.setAttribute("id", newOptionIDt4a);
-    newOptiont4a.setAttribute('value', inpt21);
-    let selectt4a = document.getElementById('selectfrom2');
-    selectt4a.appendChild(newOptiont4a);
 
-    /*********************** Adding input value table 4 dropdown ( to) *************************/
 
-    let newOptionIDb;
-    newOptionIDb = 'newOption_' + inpt21;
+      document.getElementById('entity2').appendChild(newLi2);
+      arrentityt2.push(inpt21);
+      document.getElementById("inp21").value = "";
 
-    let newOptionb = document.createElement('option');
-    let optionTextb = document.createTextNode(inpt21);
-    // set option text
-    newOptionb.appendChild(optionTextb);
-    // and option value
+      /*********************** Adding input value in table 4 dropdown (from ) *************************/
 
-    newOptionb.setAttribute("id", newOptionIDb);
-    newOptionb.setAttribute('value', inpt21);
-    let selectb = document.getElementById('selectto2');
-    selectb.appendChild(newOptionb);
+      let newOptionIDt4a;
+      newOptionIDt4a = 'newOption_' + inpt21;
 
+      let newOptiont4a = document.createElement('option');
+      let optionTextt4a = document.createTextNode(inpt21);
+      // set option text
+      newOptiont4a.appendChild(optionTextt4a);
+      // and option value
+
+      newOptiont4a.setAttribute("id", newOptionIDt4a);
+      newOptiont4a.setAttribute('value', inpt21);
+      let selectt4a = document.getElementById('selectfrom2');
+      selectt4a.appendChild(newOptiont4a);
+
+      /*********************** Adding input value table 4 dropdown ( to) *************************/
+
+      let newOptionIDb;
+      newOptionIDb = 'newOption_' + inpt21;
+
+      let newOptionb = document.createElement('option');
+      let optionTextb = document.createTextNode(inpt21);
+      // set option text
+      newOptionb.appendChild(optionTextb);
+      // and option value
+
+      newOptionb.setAttribute("id", newOptionIDb);
+      newOptionb.setAttribute('value', inpt21);
+      let selectb = document.getElementById('selectto2');
+      selectb.appendChild(newOptionb);
+
+    }
   }
-
 }
 
 /************************************ Function for Table 2 ********************************************/
@@ -146,34 +98,6 @@ function addbtnt22() {
   inpt22 = document.getElementById("inp22").value;
   inpt23 = document.getElementById("inp23").value;
 
-  var newIconbtn = document.createElement("img");
-  newIconbtn.setAttribute("src", "./images/remove.png");
-  newIconbtn.setAttribute("onclick", "removerowli2(this)");
-  newIconbtn.setAttribute("style", "cursor:pointer;");
-
-  var b_sign2 = "(";
-  var para2 = document.createElement("b");
-  let add_b2 = document.createTextNode(b_sign2);
-  para2.appendChild(add_b2);
-  var b_sign12 = ")";
-  var para12 = document.createElement("b");
-  let add_b12 = document.createTextNode(b_sign12);
-  para12.appendChild(add_b12);
-
-
-  newuLi2 = document.createElement("ul");
-  newuLi2.setAttribute("style", "list-style-type:none");
-  newLi2 = document.createElement("li");
-  let liTextNodep2 = document.createTextNode(inpt22);
-  let liTextNodepl2 = document.createTextNode(inpt23);
-  newLi2.appendChild(liTextNodep2);
-  newLi2.appendChild(para2);
-  newLi2.appendChild(liTextNodepl2);
-  newLi2.appendChild(para12);
-
-
-  newLi2.appendChild(newIconbtn);
-  newuLi2.appendChild(newLi2);
 
   if (inpt22 == "") {
     alert("Please Enter Process Before Clicking Add Button");
@@ -181,75 +105,97 @@ function addbtnt22() {
   else if (inpt23 == "") {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
-
-  let isInserted = false;
-  
-  const listItemsulp2 = document.getElementById("process2");
-  const listItemslip2 = listItemsulp2.getElementsByTagName("li");
-  for (let i = 0; i < listItemslip2.length; i++) {
-    
-    if (listItemslip2[i].textContent == pl2) {
-      isInserted = true;
-      break;
-    }
-  }
-
-if (isInserted) {
-  alert("You have already enter a process by the same name.");
-  document.getElementById("inp22").value = "";
-  document.getElementById("inp23").value = "";
-}
   else {
-    //document.getElementById("process_" + inpt21).appendChild(newuLi2);
-    document.getElementById("process2").appendChild(newLi2);
-    pl2 = inpt22 + "(" + inpt23 + ")";
-    arrprocess2.push(pl2);
-    newLi2.setAttribute("data-value", pl2);
-    let newOptionIDpa;
-    newOptionIDpa = 'newOption_' + inpt22;
+    let isInserted = false;
 
-    let newOptionpa = document.createElement('option');
-    let optionTextpa = document.createTextNode(pl2);
-    // set option text
-    newOptionpa.appendChild(optionTextpa);
-    // and option value
+    const listItemsulp2 = document.getElementById("process2");
+    const listItemslip2 = listItemsulp2.getElementsByTagName("li");
+    for (let i = 0; i < listItemslip2.length; i++) {
 
-    newOptionpa.setAttribute("id", newOptionIDpa);
-    newOptionpa.setAttribute('value', pl2);
-    let selectpa = document.getElementById('selectfrom2');
-    selectpa.appendChild(newOptionpa);
+      if (listItemslip2[i].textContent == pl2) {
+        isInserted = true;
+        break;
+      }
+    }
+
+    if (isInserted) {
+      alert("You have already enter a process by the same name.");
+      document.getElementById("inp22").value = "";
+      document.getElementById("inp23").value = "";
+    }
+    else {
+      var newIconbtn = document.createElement("img");
+      newIconbtn.setAttribute("src", "./images/remove.png");
+      newIconbtn.setAttribute("onclick", "removerowli2(this)");
+      newIconbtn.setAttribute("style", "cursor:pointer;");
+
+      var b_sign2 = "(";
+      var para2 = document.createElement("b");
+      let add_b2 = document.createTextNode(b_sign2);
+      para2.appendChild(add_b2);
+      var b_sign12 = ")";
+      var para12 = document.createElement("b");
+      let add_b12 = document.createTextNode(b_sign12);
+      para12.appendChild(add_b12);
 
 
-    let newOptionIDptb;
-    newOptionIDptb = 'newOption_' + inpt22;
 
-    let newOptionptb = document.createElement('option');
-    let optionTextptb = document.createTextNode(pl2);
-    // set option text
-    newOptionptb.appendChild(optionTextptb);
-    // and option value
+      newLi2 = document.createElement("li");
+      let liTextNodep2 = document.createTextNode(inpt22);
+      let liTextNodepl2 = document.createTextNode(inpt23);
+      newLi2.appendChild(liTextNodep2);
+      newLi2.appendChild(para2);
+      newLi2.appendChild(liTextNodepl2);
+      newLi2.appendChild(para12);
 
-    newOptionptb.setAttribute("id", newOptionIDptb);
-    newOptionptb.setAttribute('value', pl2);
-    let selectptb = document.getElementById('selectto2');
-    selectptb.appendChild(newOptionptb);
+
+      newLi2.appendChild(newIconbtn);
+
+      //document.getElementById("process_" + inpt21).appendChild(newuLi2);
+      document.getElementById("process2").appendChild(newLi2);
+      pl2 = inpt22 + "(" + inpt23 + ")";
+      arrprocess2.push(pl2);
+      newLi2.setAttribute("data-value", pl2);
+      let newOptionIDpa;
+      newOptionIDpa = 'newOption_' + inpt22;
+
+      let newOptionpa = document.createElement('option');
+      let optionTextpa = document.createTextNode(pl2);
+      // set option text
+      newOptionpa.appendChild(optionTextpa);
+      // and option value
+
+      newOptionpa.setAttribute("id", newOptionIDpa);
+      newOptionpa.setAttribute('value', pl2);
+      let selectpa = document.getElementById('selectfrom2');
+      selectpa.appendChild(newOptionpa);
+
+
+      let newOptionIDptb;
+      newOptionIDptb = 'newOption_' + inpt22;
+
+      let newOptionptb = document.createElement('option');
+      let optionTextptb = document.createTextNode(pl2);
+      // set option text
+      newOptionptb.appendChild(optionTextptb);
+      // and option value
+
+      newOptionptb.setAttribute("id", newOptionIDptb);
+      newOptionptb.setAttribute('value', pl2);
+      let selectptb = document.getElementById('selectto2');
+      selectptb.appendChild(newOptionptb);
+
+    }
+
+    document.getElementById("inp22").value = "";
+    document.getElementById("inp23").value = "";
+
+
 
   }
-
-  document.getElementById("inp22").value = "";
-  document.getElementById("inp23").value = "";
-
-
 
 }
 
-
-/*function checknumber(){
-  if (isNaN(inpt3)) 
-  {
-    alert("Must input numbers");
-  }
-}*/
 
 
 
@@ -261,25 +207,6 @@ function addbtnt23() {
   inpt24 = document.getElementById("inp24").value;
 
 
-  var newIconbtn = document.createElement("img");
-  newIconbtn.setAttribute("src", "./images/remove.png");
-  newIconbtn.setAttribute("onclick", "removerowli2(this)");
-  newIconbtn.setAttribute("style", "cursor:pointer;");
-
-
-  newuLin2 = document.createElement("ul");
-  newLin2 = document.createElement("li");
-  newuLin2.setAttribute("style", "list-style-type:none");
-
-  let liTextNodent2 = document.createTextNode(inpt24);
-  newLin2.appendChild(liTextNodent2);
-  newLin2.appendChild(newIconbtn);
-
-
-
-  newuLin2.appendChild(newLin2);
-
-
 
 
   if (inpt24 == "") {
@@ -288,59 +215,76 @@ function addbtnt23() {
 
   else {
     let isInserted = false;
-  
+
     const listItemsulds2 = document.getElementById("ds2");
     const listItemslids2 = listItemsulds2.getElementsByTagName("li");
     for (let i = 0; i < listItemslids2.length; i++) {
-      
+
       if (listItemslids2[i].textContent == inpt24) {
         isInserted = true;
         break;
       }
     }
-  
-  if (isInserted) {
-    alert("You have already entered a data store by the same name.");
+
+    if (isInserted) {
+      alert("You have already entered a data store by the same name.");
+      document.getElementById("inp24").value = "";
+    }
+    else {
+      var newIconbtn = document.createElement("img");
+      newIconbtn.setAttribute("src", "./images/remove.png");
+      newIconbtn.setAttribute("onclick", "removerowli2(this)");
+      newIconbtn.setAttribute("style", "cursor:pointer;");
+
+
+
+      newLin2 = document.createElement("li");
+
+
+      let liTextNodent2 = document.createTextNode(inpt24);
+      newLin2.appendChild(liTextNodent2);
+      newLin2.appendChild(newIconbtn);
+
+
+      arrdatastore2.push(inpt24);
+      //document.getElementById("ds_" + inpt21).appendChild(newuLin2);
+      document.getElementById("ds2").appendChild(newLin2);
+      newLin2.setAttribute("data-value", inpt24);
+
+      let newOptionIDdsa;
+      newOptionIDdsa = 'newOption_' + inpt24;
+
+      let newOptiondsa = document.createElement('option');
+      let optionTextdsa = document.createTextNode(inpt24);
+      // set option text
+      newOptiondsa.appendChild(optionTextdsa);
+      // and option value
+
+      newOptiondsa.setAttribute("id", newOptionIDdsa);
+      newOptiondsa.setAttribute('value', inpt24);
+      let selectdsa = document.getElementById('selectfrom2');
+      selectdsa.appendChild(newOptiondsa);
+
+
+      let newOptionIDdstb;
+      newOptionIDdstb = 'newOption_' + inpt24;
+
+      let newOptiondstb = document.createElement('option');
+      let optionTextdstb = document.createTextNode(inpt24);
+      // set option text
+      newOptiondstb.appendChild(optionTextdstb);
+      // and option value
+
+      newOptiondstb.setAttribute("id", newOptionIDdstb);
+      newOptiondstb.setAttribute('value', inpt24);
+      let selectdstb = document.getElementById('selectto2');
+      selectdstb.appendChild(newOptiondstb);
+
+    }
+
     document.getElementById("inp24").value = "";
+    //document.getElementById("ftbl3").reset();
   }
-    arrdatastore2.push(inpt24);
-    //document.getElementById("ds_" + inpt21).appendChild(newuLin2);
-    document.getElementById("ds2").appendChild(newLin2);
-    newLin2.setAttribute("data-value", inpt24);
-
-    let newOptionIDdsa;
-    newOptionIDdsa = 'newOption_' + inpt24;
-
-    let newOptiondsa = document.createElement('option');
-    let optionTextdsa = document.createTextNode(inpt24);
-    // set option text
-    newOptiondsa.appendChild(optionTextdsa);
-    // and option value
-
-    newOptiondsa.setAttribute("id", newOptionIDdsa);
-    newOptiondsa.setAttribute('value', inpt24);
-    let selectdsa = document.getElementById('selectfrom2');
-    selectdsa.appendChild(newOptiondsa);
-
-
-    let newOptionIDdstb;
-    newOptionIDdstb = 'newOption_' + inpt24;
-
-    let newOptiondstb = document.createElement('option');
-    let optionTextdstb = document.createTextNode(inpt24);
-    // set option text
-    newOptiondstb.appendChild(optionTextdstb);
-    // and option value
-
-    newOptiondstb.setAttribute("id", newOptionIDdstb);
-    newOptiondstb.setAttribute('value', inpt24);
-    let selectdstb = document.getElementById('selectto2');
-    selectdstb.appendChild(newOptiondstb);
-
-
-  }
-  document.getElementById("inp24").value = "";
-  //document.getElementById("ftbl3").reset();
 
 }
 /********************************************************** Function for Table 4 *****************************************************************/
@@ -503,20 +447,20 @@ function removerowli2(btndel) {
 /********************************************* Function for Drawing UML**************************************************/
 var lenent2, lenproc2, lendb2, lendatal2;
 function drawbtex2() {
- lenent2=arrentityt2.length;
- lenproc2=arrprocess2.length;
- lendb2=arrdatastore2.length;
- lendatal2=arrdatal2.length;
-   if((lenent2==1) && (lenproc2==3)&& (lendb2==1) &&(lendatal2==7)){
+  lenent2 = arrentityt2.length;
+  lenproc2 = arrprocess2.length;
+  lendb2 = arrdatastore2.length;
+  lendatal2 = arrdatal2.length;
+  if ((lenent2 == 1) && (lenproc2 == 3) && (lendb2 == 1) && (lendatal2 == 7)) {
     document.getElementById("dispuml2").style.display = "block";
-   
-   }
-   else{
 
-  alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, three process, one data store, and seven data flow label");
-  document.getElementById("dispuml2").style.display = "none";
+  }
+  else {
 
-   }
+    alert("Enter External entity, Process, Data Store and Data Label in the table. \n\n Hint: From the above problem statement you will get one external entity, three process, one data store, and seven data flow label");
+    document.getElementById("dispuml2").style.display = "none";
+
+  }
   var namespace = joint.shapes;
 
   var graph = new joint.dia.Graph({}, { cellNamespace: namespace });

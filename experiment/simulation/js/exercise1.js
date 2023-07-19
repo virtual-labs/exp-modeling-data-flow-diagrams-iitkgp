@@ -38,6 +38,7 @@ function addbtnt1() {
 
 
   newuLi = document.createElement("ul");
+  newuLi.setAttribute("id","entity");
   newuLi.setAttribute("style", "list-style-type:none");
   newLi = document.createElement("li");
   newLi.setAttribute("data-value", inpt1);
@@ -45,7 +46,7 @@ function addbtnt1() {
   newLi.appendChild(liTextNodeact);
   newLi.appendChild(newIconbtn);
   newuLi.appendChild(newLi);
-  newtd.appendChild(newuLi);
+ // newtd.appendChild(newuLi);
 
 
   /**** process *****/
@@ -77,8 +78,27 @@ function addbtnt1() {
 
   if (inpt1 == "") {
     alert("Please Enter External Entity before clicking Add Button");
-  } else {
-    document.getElementById('tbodyt5').appendChild(newtr);
+  } 
+
+  let isInserted = false;
+  
+    const listItemsul = document.getElementById("entity");
+    const listItemsli = listItemsul.getElementsByTagName("li");
+    for (let i = 0; i < listItemsli.length; i++) {
+      
+      if (listItemsli[i].textContent == inpt1) {
+        isInserted = true;
+        break;
+      }
+    }
+  
+  if (isInserted) {
+    alert("You have already entered a external entity by the same name.");
+    document.getElementById("inp1").value = "";
+  }
+  
+  else {
+    document.getElementById('entity').appendChild(newLi);
     arrentity.push(inpt1);
 
     document.getElementById("inp1").value = "";
@@ -123,6 +143,9 @@ function addbtnt1() {
     select.appendChild(newOption);
 
   }
+
+
+  
 }
 
 /************************************ Function for Table 2 ********************************************/
@@ -150,6 +173,7 @@ function addbtnt2() {
 
 
   newuLi = document.createElement("ul");
+  newuLi.setAttribute("id","process");
   newuLi.setAttribute("style", "list-style-type:none");
   newLi = document.createElement("li");
   let liTextNodep = document.createTextNode(inpt2);
@@ -170,9 +194,12 @@ function addbtnt2() {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
 
+ else{
 
-  else {
-    document.getElementById("process_" + inpt1).appendChild(newuLi);
+
+  
+    document.getElementById("process").appendChild(newLi);
+    //document.getElementById("process_"+inpt1).appendChild(newuLi);
     pl = inpt2 + "(" + inpt3 + ")";
     arrprocess.push(pl);
     newLi.setAttribute("data-value", pl);
@@ -256,10 +283,26 @@ function addbtnt3() {
   if (inpt4 == "") {
     alert("Please Enter Data Store Before Clicking Add Button");
   }
+  let isInserted = false;
+  
+  const listItemsulds = document.getElementById("ds");
+  const listItemslids = listItemsulds.getElementsByTagName("li");
+  for (let i = 0; i < listItemslids.length; i++) {
+    
+    if (listItemslids[i].textContent == inpt4) {
+      isInserted = true;
+      break;
+    }
+  }
 
+if (isInserted) {
+  alert("You have already entered a data store by the same name.");
+  document.getElementById("inp4").value = "";
+}
   else {
     arrdatastore.push(inpt4);
-    document.getElementById("ds_" + inpt1).appendChild(newuLin);
+    document.getElementById("ds").appendChild(newLin);
+    //document.getElementById("ds_" + inpt1).appendChild(newuLin);
     newLin.setAttribute("data-value", inpt4);
 
     let newOptionIDds;

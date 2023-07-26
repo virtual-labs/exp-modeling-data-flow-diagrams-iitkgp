@@ -32,7 +32,8 @@ function subex(){
         document.getElementById("show_result2").style.display="none";
         document.getElementById("dispuml1").style.display="none";
         document.getElementById("dispuml2").style.display="none";
-        document.getElementById("dispviewbtn").disabled=false;
+        document.getElementById("dispviewbtn").disabled=false; // submit button 
+        //document.getElementById("retrybtn").style.display="block"; //try again button
         document.getElementById("viewsol").disabled=true;
        
     }
@@ -47,11 +48,11 @@ function subex(){
       document.getElementById("show_result2").style.display="none";
       document.getElementById("dispuml1").style.display="none";
       document.getElementById("dispuml2").style.display="none";
-      document.getElementById("dispviewbtn").disabled=false;
+      document.getElementById("dispviewbtn").disabled=false; // submit button 
+     // document.getElementById("retrybtn").style.display="block"; //try again button
       document.getElementById("viewsol").disabled=true;
-     
-  }
-    
+      //clearTable();
+} 
     
 }
 /* Submit button to directly view the solution*/
@@ -89,3 +90,13 @@ function solview(){  //view solution button
 
 }
  
+ /* function clearTable() {
+  // Get a reference to the table
+  const table = document.getElementById("tbl5");
+
+  // Clear all rows except the header row (first row)
+  while (table.rows.length > 2) {
+    table.deleteRow(1);
+  }
+}  */
+

@@ -97,7 +97,7 @@ function addbtnt22() {
 
   inpt22 = document.getElementById("inp22").value;
   inpt23 = document.getElementById("inp23").value;
-
+let isInserted = false;
 
   if (inpt22 == "") {
     alert("Please Enter Process Before Clicking Add Button");
@@ -106,12 +106,12 @@ function addbtnt22() {
     alert("Please Enter Process Level Before Clicking Add Button");
   }
   else {
-    let isInserted = false;
+    //let isInserted = false;
 
     const listItemsulp2 = document.getElementById("process2");
     const listItemslip2 = listItemsulp2.getElementsByTagName("li");
+    pl2 = inpt22 + "(" + inpt23 + ")";
     for (let i = 0; i < listItemslip2.length; i++) {
-
       if (listItemslip2[i].textContent == pl2) {
         isInserted = true;
         break;
@@ -120,6 +120,7 @@ function addbtnt22() {
 
     if (isInserted) {
       alert("You have already enter a process by the same name.");
+      
       document.getElementById("inp22").value = "";
       document.getElementById("inp23").value = "";
     }
